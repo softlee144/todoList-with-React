@@ -1,7 +1,6 @@
-import styled from "@emotion/styled";
-import { Title } from "components/Title";
-import { ToDoList } from "components/ToDoList";
-import { useState } from "react";
+import styled from '@emotion/styled';
+import { useState } from 'react';
+import { DataView } from 'components/DataView';
 
 const Container = styled.div`
   height: 100vh;
@@ -13,11 +12,7 @@ const Container = styled.div`
 `;
 
 function App() {
-  const [toDoList, setToDoList] = useState([
-    "리액트 공부하기",
-    "운동하기",
-    "책읽기",
-  ]);
+  const [toDoList, setToDoList] = useState(['리액트 공부하기', '운동하기', '책읽기']);
 
   const onDelete = (todo: string) => {
     setToDoList(toDoList.filter((item) => item !== todo));
@@ -25,8 +20,7 @@ function App() {
 
   return (
     <Container>
-      <Title label="할 일 목록" />
-      <ToDoList toDoList={toDoList} onDelete={onDelete} />
+      <DataView toDoList={toDoList} onDelete={onDelete} />
     </Container>
   );
 }
